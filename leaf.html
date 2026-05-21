@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leaflet Map</title>
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            background: #f5f5f5;
+        }
+
+        #map {
+            width: 900px;
+            height: 580px;
+            margin: 20px auto;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.8);
+            overflow: hidden;
+        }
+    </style
+</head>
+
+<body>
+
+<div id="map"></div>
+
+<script>
+
+var mapOptions = {
+    center: [34.64, 74.82],
+    zoom: 14
+};
+
+var map = L.map('map', mapOptions);
+
+L.tileLayer(
+  'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+{
+  attribution: 'Tiles &copy; Esri'
+}).addTo(map);
+
+L.marker([34.635, 74.83])
+ .addTo(map)
+ .bindPopup("DAWAR");
+
+
+</script>
+
+</body>
+</html>
