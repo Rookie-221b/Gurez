@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Portfolio</title>
+
+<!-- FONT AWESOME -->
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+/* =========================================================
+   GLOBAL DESIGN SYSTEM
+========================================================= */
+
+:root{
+
+  --bg-primary:#030712;
+  --bg-secondary:#071120;
+
+  --accent:#38bdf8;
+
+  --text-main:#f8fafc;
+  --text-soft:#d6e2f0;
+  --text-muted:#94a3b8;
+
+  --border:
+  rgba(255,255,255,0.08);
+
+  --border-hover:
+  rgba(56,189,248,0.30);
+
+  --shadow-soft:
+  0 10px 30px rgba(0,0,0,0.30);
+
+  --shadow-lg:
+  0 22px 60px rgba(0,0,0,0.45);
+
+  --radius-lg:32px;
+
+  --container:1320px;
+}
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+
+  margin:0;
+  padding:0;
+
+  box-sizing:border-box;
+}
+
+html{
+
+  scroll-behavior:smooth;
+}
+
+/* =========================================================
+   BODY WITH SINGLE BACKGROUND IMAGE
+========================================================= */
+
+body{
+
+  font-family:
+  "Inter",
+  "Segoe UI",
+  sans-serif;
+
+  color:var(--text-main);
+
+  overflow-x:hidden;
+
+  line-height:1.7;
+
+  background:
+  linear-gradient(
+  rgba(2,8,20,0.55),
+  rgba(2,8,20,0.72)),
+  url('rsb.jpg');
+
+  background-size:cover;
+
+  background-position:center;
+
+  background-attachment:fixed;
+}
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+
+h1,h2,h3,h4{
+
+  font-weight:700;
+
+  letter-spacing:-0.03em;
+}
+
+p{
+
+  color:var(--text-soft);
+}
+
+/* =========================================================
+   COMMON SECTION STYLE
+========================================================= */
+
+.sections,
+.intro-contact{
+
+  position:relative;
+
+  overflow:hidden;
+
+  background:transparent;
+}
+
+/* ambient glow */
+
+.sections::before,
+.intro-contact::after{
+
+  content:"";
+
+  position:absolute;
+
+  width:700px;
+  height:700px;
+
+  border-radius:50%;
+
+  background:
+  rgba(56,189,248,0.08);
+
+  filter:blur(140px);
+
+  pointer-events:none;
+}
+
+/* =========================================================
+   THEMES SECTION
+========================================================= */
+
+.sections{
+
+  padding:120px 7% 130px;
+}
+
+.sections::before{
+
+  top:-250px;
+  left:-220px;
+}
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.section-title{
+
+  text-align:center;
+
+  max-width:780px;
+
+  margin:0 auto 70px;
+
+  position:relative;
+
+  z-index:2;
+}
+
+.mini-title{
+
+  display:inline-block;
+
+  color:var(--accent);
+
+  font-size:0.82rem;
+
+  letter-spacing:4px;
+
+  font-weight:700;
+
+  margin-bottom:18px;
+
+  text-transform:uppercase;
+}
+
+.section-title h2{
+
+  font-size:3.4rem;
+
+  margin-bottom:20px;
+
+  color:var(--text-main);
+
+  line-height:1.08;
+}
+
+.section-title p{
+
+  font-size:1.08rem;
+
+  line-height:2;
+
+  color:var(--text-muted);
+}
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.theme-grid{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(340px,1fr));
+
+  gap:40px;
+
+  max-width:var(--container);
+
+  margin:auto;
+
+  position:relative;
+
+  z-index:2;
+}
+
+.theme-link{
+
+  text-decoration:none;
+
+  color:inherit;
+
+  display:block;
+}
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.theme-card{
+
+  position:relative;
+
+  overflow:hidden;
+
+  padding:46px 42px;
+
+  min-height:330px;
+
+  border-radius:var(--radius-lg);
+
+  background:
+  linear-gradient(
+  160deg,
+  rgba(15,23,42,0.82),
+  rgba(8,15,28,0.92));
+
+  border:1px solid var(--border);
+
+  backdrop-filter:blur(18px);
+
+  box-shadow:var(--shadow-soft);
+
+  transition:
+  transform .45s ease,
+  box-shadow .45s ease,
+  border-color .45s ease;
+}
+
+/* hover glow */
+
+.theme-card::before{
+
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+  radial-gradient(
+  circle at top right,
+  rgba(56,189,248,0.18),
+  transparent 42%);
+
+  opacity:0;
+
+  transition:.45s ease;
+}
+
+.theme-card:hover::before{
+
+  opacity:1;
+}
+
+.theme-card:hover{
+
+  transform:
+  translateY(-10px);
+
+  border-color:
+  var(--border-hover);
+
+  box-shadow:var(--shadow-lg);
+}
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.theme-icon{
+
+  width:84px;
+  height:84px;
+
+  border-radius:26px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  margin-bottom:34px;
+
+  background:
+  linear-gradient(
+  145deg,
+  rgba(56,189,248,0.14),
+  rgba(56,189,248,0.06));
+
+  border:1px solid
+  rgba(56,189,248,0.18);
+
+  position:relative;
+
+  z-index:2;
+}
+
+.theme-icon i{
+
+  font-size:2.1rem;
+
+  color:var(--accent);
+}
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.theme-content{
+
+  position:relative;
+
+  z-index:2;
+}
+
+.theme-content h3{
+
+  font-size:1.9rem;
+
+  margin-bottom:18px;
+
+  color:var(--text-main);
+}
+
+.theme-content p{
+
+  color:var(--text-soft);
+
+  line-height:2;
+
+  font-size:1.02rem;
+}
+
+/* =========================================================
+   INTRO SECTION
+========================================================= */
+
+.intro-contact{
+
+  padding:120px 24px 130px;
+}
+
+.intro-contact::after{
+
+  top:-250px;
+  right:-220px;
+}
+
+/* =========================================================
+   FLOATING GLOW
+========================================================= */
+
+.intro-glow{
+
+  position:absolute;
+
+  width:620px;
+  height:620px;
+
+  border-radius:50%;
+
+  background:
+  rgba(56,189,248,0.08);
+
+  filter:blur(120px);
+
+  bottom:-220px;
+  left:-180px;
+
+  z-index:1;
+}
+
+/* =========================================================
+   INTRO BOX
+========================================================= */
+
+.intro-box{
+
+  position:relative;
+
+  z-index:2;
+
+  max-width:960px;
+
+  margin:auto;
+
+  text-align:center;
+
+  padding:70px 60px;
+
+  border-radius:36px;
+
+  background:
+  linear-gradient(
+  160deg,
+  rgba(15,23,42,0.82),
+  rgba(8,15,28,0.92));
+
+  border:1px solid var(--border);
+
+  backdrop-filter:blur(22px);
+
+  box-shadow:var(--shadow-lg);
+}
+
+/* =========================================================
+   PROFILE IMAGE
+========================================================= */
+
+.intro-photo{
+
+  width:160px;
+  height:160px;
+
+  object-fit:cover;
+
+  border-radius:50%;
+
+  margin-bottom:28px;
+
+  border:4px solid
+  rgba(255,255,255,0.18);
+
+  box-shadow:
+  0 10px 30px rgba(0,0,0,0.35);
+
+  transition:
+  transform .45s ease,
+  border-color .45s ease;
+}
+
+.intro-photo:hover{
+
+  transform:scale(1.05);
+
+  border-color:
+  rgba(56,189,248,0.5);
+}
+
+/* =========================================================
+   INTRO TEXT
+========================================================= */
+
+.intro-box h2{
+
+  font-size:3rem;
+
+  margin-bottom:24px;
+
+  color:var(--text-main);
+}
+
+.intro-box p{
+
+  max-width:760px;
+
+  margin:auto;
+
+  color:var(--text-soft);
+
+  line-height:2.1;
+
+  font-size:1.05rem;
+}
+
+/* =========================================================
+   SOCIALS
+========================================================= */
+
+.intro-socials{
+
+  margin-top:42px;
+
+  display:flex;
+
+  justify-content:center;
+
+  gap:22px;
+
+  flex-wrap:wrap;
+}
+
+.social-btn{
+
+  position:relative;
+
+  width:68px;
+  height:68px;
+
+  border-radius:22px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  font-size:1.4rem;
+
+  color:white;
+
+  overflow:hidden;
+
+  background:
+  rgba(255,255,255,0.05);
+
+  border:1px solid
+  rgba(255,255,255,0.08);
+
+  backdrop-filter:blur(10px);
+
+  transition:
+  transform .4s ease,
+  background .4s ease,
+  box-shadow .4s ease;
+}
+
+.social-btn:hover{
+
+  transform:
+  translateY(-8px)
+  scale(1.05);
+
+  box-shadow:
+  0 14px 35px rgba(0,0,0,0.35);
+}
+
+/* hover colors */
+
+.fb:hover{
+
+  background:#1877f2;
+}
+
+.insta:hover{
+
+  background:
+  linear-gradient(
+  135deg,
+  #f58529,
+  #dd2a7b,
+  #8134af,
+  #515bd4);
+}
+
+.mail:hover{
+
+  background:#38bdf8;
+
+  color:#081120;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:768px){
+
+  .sections{
+
+    padding:80px 22px 90px;
+  }
+
+  .intro-contact{
+
+    padding:80px 20px 90px;
+  }
+
+  .section-title h2{
+
+    font-size:2.2rem;
+  }
+
+  .theme-grid{
+
+    grid-template-columns:1fr;
+
+    gap:24px;
+  }
+
+  .theme-card{
+
+    padding:34px 28px;
+  }
+
+  .intro-box{
+
+    padding:44px 26px;
+  }
+
+  .intro-box h2{
+
+    font-size:2rem;
+  }
+
+  .intro-photo{
+
+    width:125px;
+    height:125px;
+  }
+
+  .social-btn{
+
+    width:58px;
+    height:58px;
+
+    border-radius:18px;
+
+    font-size:1.2rem;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- =========================================================
+     THEMES SECTION
+========================================================= -->
+
+<section class="sections" id="themes">
+
+  <div class="section-title">
+
+    <span class="mini-title">
+      EXPLORE
+    </span>
+
+    <h2>Interests & Themes</h2>
+
+    <p>
+      Technology, digital geography,
+      landscapes, visual storytelling,
+      and immersive experiences.
+    </p>
+
+  </div>
+
+  <div class="theme-grid">
+
+    <!-- TECH CARD -->
+
+    <a href="gis.html" class="theme-link">
+
+      <article class="theme-card">
+
+        <div class="theme-icon">
+          <i class="fa-solid fa-earth-asia"></i>
+        </div>
+
+        <div class="theme-content">
+
+          <h3>Tech Blog</h3>
+
+          <p>
+          
+         Spatial Analytics, Structural Geology 
+          </p>
+
+        </div>
+
+      </article>
+
+    </a>
+
+    <!-- TRAVEL CARD -->
+
+    <a href="travel.html" class="theme-link">
+
+      <article class="theme-card">
+
+        <div class="theme-icon">
+          <i class="fa-solid fa-mountain-sun"></i>
+        </div>
+
+        <div class="theme-content">
+
+          <h3>Outdoors Blog</h3>
+
+          <p>
+            Landscapes, Places and Wildlife
+          </p>
+
+        </div>
+
+      </article>
+
+    </a>
+
+  </div>
+
+</section>
+
+<!-- =========================================================
+     INTRO SECTION
+========================================================= -->
+
+<section class="intro-contact">
+
+  <div class="intro-glow"></div>
+
+  <div class="intro-box">
+
+    <img src="myphoto.jpg"
+    alt="Profile Photo"
+    class="intro-photo">
+
+    <h2>Mustuffa</h2>
+
+    <p>
+      
+    </p>
+
+    <div class="intro-socials">
+
+      <a href="https://facebook.com/yourusername"
+      target="_blank"
+      class="social-btn fb">
+
+        <i class="fab fa-facebook-f"></i>
+
+      </a>
+
+      <a href="https://instagram.com/yourusername"
+      target="_blank"
+      class="social-btn insta">
+
+        <i class="fab fa-instagram"></i>
+
+      </a>
+
+      <a href="mailto:youremail@example.com"
+      class="social-btn mail">
+
+        <i class="fa-solid fa-envelope"></i>
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+</body>
+</html>
